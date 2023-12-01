@@ -3682,6 +3682,7 @@ public class SessionImpl
 	}
 
 	@Override
+	//获取EntityManager接口的真正的代理实现类。钩子函数
 	public Object getDelegate() {
 		checkOpen();
 		return this;

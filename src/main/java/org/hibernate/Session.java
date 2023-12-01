@@ -304,6 +304,7 @@ public interface Session extends SharedSessionContract, EntityManager, Hibernate
 	// 当调用load()方法的时候会返回一个目标对象的代理对象，在这个代理对象中只存储了目标对象的ID值，只有当调用除ID值以外的属性值的时候才会发出SQL查询的
 	// 当session关闭后，load()方法出的对象再次查询的话，就会抛出LazyInitializationException
 	// get() 是立即查询对象的全部属性
+	// 开启事务后，才会开启session；事务关闭，session自动关闭！！！
 	<T> T load(Class<T> theClass, Serializable id, LockMode lockMode);
 
 	/**
