@@ -85,7 +85,7 @@ import org.hibernate.stat.SessionStatistics;
  * @author Steve Ebersole
  */
 // Session 和数据库中的相关记录对应。Session 能够在某些时间点, 按照缓存中对象的变化来执行相关的 SQL 语句, 来同步更新数据库, 这一过程被称为刷新缓存(flush)。也叫一级缓存。
-// 在 Session 接口的实现中包含一系列的 Java 集合, 这些 Java 集合构成了 Session 缓存。
+// 在 Session 接口的实现中包含一系列的 Java 集合, 这些 Java 集合构成了 Session 缓存。Session的生命周期绑定在一个物理事务上面!!!
 // 只要 Session 实例没有结束生命周期, 且没有清理缓存，则存放在它缓存中的对象也不会结束生命周期。想要在代码中立即写入数据库则要调用void flush()方法
 // Session 缓存可减少 Hibernate 应用程序访问数据库的频率。
 public interface Session extends SharedSessionContract, EntityManager, HibernateEntityManager, AutoCloseable, Closeable {
